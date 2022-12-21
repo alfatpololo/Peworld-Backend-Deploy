@@ -25,6 +25,6 @@ app.use(portofolioRouter)
 app.use(experienceRouter)
 app.use(skillRouter)
 // jalankan express
-app.listen(3001, () => {
+app.listen(3000, () => {
   console.log('SERVICE RUNNING ON PORT 3001')
 })
