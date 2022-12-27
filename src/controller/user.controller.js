@@ -6,7 +6,7 @@ const userController = {
   // metod
   list: (req, res) => {
     userModel.selectAll()
-      .then((results) => {
+      .then((res) => {
         success(res, results, 'success', 'get all user success')
       }).catch((err) => {
         failed(res, err.message, 'failed', 'get all user failed')
@@ -52,11 +52,11 @@ const userController = {
     // eslint-disable-next-line camelcase
     const {name, job_desk, city, description, tempat_kerja} = req.body
     const data = {
-      id, name, job_desk, city, description, tempat_kerja, image_user: image_user.secure_url,
+      id: parseInt(id), name, job_desk, city, description, tempat_kerja, image_user: image_user.secure_url,
     }
     userModel
       .updateUser(data)
-      .then((result) => {
+      .then((res) => {
         res.json('Account Updated')
         console.log(name)
       })
