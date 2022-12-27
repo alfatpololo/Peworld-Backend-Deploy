@@ -1,6 +1,6 @@
 const userModel = require('../model/user.model')
 const { success, succesWithPagination, failed } = require('../helper/response');
-const cloudinary = require('../helper/response')
+const cloudinary = require('../helper/cloudinary')
 
 const userController = {
   // metod
@@ -60,14 +60,15 @@ const userController = {
       tempat_kerja,
       image_user: image_user.secure_url,
     }
+    // console.log(data)
     userModel
       .updateUser(data)
-      .then((res) => {
-        res.json('Account Updated')
-        console.log(name)
+      .then((results) => {
+        success(res, data, results, 'success', 'get all user success')
+        // console.log(name)
       })
       .catch((err) => {
-        res.json(err)
+        failed(res, err.message, 'failed', 'get all user failed')
       })
   },
   

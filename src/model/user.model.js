@@ -78,6 +78,7 @@ const userModel = {
   },
   
   updateUser: (data) => {
+    console.log(data, "ini data cloudinary test")
     return new Promise ((resolve, reject) => {
       db.query(`UPDATE user_workers SET
         name = COALESCE ($1, name),
@@ -98,6 +99,7 @@ const userModel = {
         })
     })
   },
+  
   countUser: () => {
     return new Promise((resolve, reject) => {
       db.query("SELECT COUNT(*) AS total FROM user_workers", (err, res) => {
