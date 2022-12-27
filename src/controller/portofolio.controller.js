@@ -79,14 +79,14 @@ const portfolioController = {
       console.log(err);
     }
   },
-  updatePortofolio: (req, res) => {
+  updatePortofolio: async (req, res) => {
     const id_portofolio = req.params.id;
-    const image = req.file.filename;
+    const image = await cloudinary.uploader.upload(req.file.path);
     const { title_portofolio, link, type } = req.body;
     const data = {
       id_portofolio,
       title_portofolio,
-      image,
+      image: image.secure.url,
       link,
       type,
     };
