@@ -24,7 +24,7 @@ module.exports = {
                 company,
                 position,
                 phone,
-                image_recruiters: req.file ? req.file.filename : "Ellipse326.png",
+                image_recruiters: "https://res.cloudinary.com/dobwcuvhd/image/upload/v1672033963/voxn2fpgiyjqqos6jnn3.jpg",
             }
 
             userRecruitersModel.registerRecruiters(data).then((result) => {
