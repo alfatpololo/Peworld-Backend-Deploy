@@ -1,6 +1,6 @@
 const userModel = require('../model/user.model')
 const { success, succesWithPagination, failed } = require('../helper/response');
-const { image } = require('../helper/cloudinary');
+const cloudinary = require('../helper/response')
 
 const userController = {
   // metod
@@ -52,7 +52,7 @@ const userController = {
     // eslint-disable-next-line camelcase
     const {name, job_desk, city, description, tempat_kerja} = req.body
     const data = {
-      id, name, job_desk, city, description, tempat_kerja, image_user: image.secure_url,
+      id, name, job_desk, city, description, tempat_kerja, image_user: image_user.secure_url,
     }
     userModel
       .updateUser(data)
