@@ -1,5 +1,6 @@
 const userModel = require('../model/user.model')
 const { success, succesWithPagination, failed } = require('../helper/response');
+const { image } = require('../helper/cloudinary');
 
 const userController = {
   // metod
@@ -45,13 +46,16 @@ const userController = {
   // },
 
   update: async (req, res) => {
+    const image_user = await cloudinary.uploader.upload(req.file.path);
     const id = req.params.id
     // const image=req.file.filename
     // eslint-disable-next-line camelcase
     const {name, job_desk, city, description, tempat_kerja} = req.body
-    const image_user = await cloudinary.uploader.upload(req.file.path);
+    const data = {
+      id, name, job_desk, city, description, tempat_kerja, image_user: image_user.secure_url,
+    }
     userModel
-      .updateUser(id, name, job_desk, city, description, tempat_kerja, image_user)
+      .updateUser(data)
       .then((result) => {
         res.json('Account Updated')
         console.log(name)
