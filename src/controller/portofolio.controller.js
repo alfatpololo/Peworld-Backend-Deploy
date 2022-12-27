@@ -1,6 +1,6 @@
 const portofolioModel = require("../model/portofolio.model");
 const { success, failed } = require("../helper/response");
-
+const cloudinary = require("../helper/cloudinary")
 const portfolioController = {
   list: (req, res) => {
     portofolioModel
@@ -56,14 +56,14 @@ const portfolioController = {
         failed(res, err.message, "failed", "Failed to delete portofolio");
       });
   },
-  insert: (req, res) => {
+  insert: async (req, res) => {
     try {
       const { id_user, title_portofolio, link, type } = req.body;
-      const image = req.file.filename;
+      const image = await cloudinary.uploader.upload(req.file.path);
       const data = {
         id_user,
         title_portofolio,
-        image,
+        image: image.secure_url,
         link,
         type,
       };
