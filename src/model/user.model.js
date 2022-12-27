@@ -77,7 +77,7 @@ const userModel = {
     })
   },
   
-  updateUser: (id, name, job_desk, city, description, tempat_kerja, image_user) => {
+  updateUser: (data) => {
     return new Promise ((resolve, reject) => {
       db.query(`UPDATE user_workers SET
         name = COALESCE ($1, name),
@@ -88,7 +88,7 @@ const userModel = {
         image_user = COALESCE ($6, image_user)
         WHERE id = $7
         `,
-        [name, job_desk, city, description, tempat_kerja, image_user, id]
+        [data.name, data.job_desk, data.city, data.description, data.tempat_kerja, data.image_user, data.id]
       
             , (err, res) => {
               if (err) {
