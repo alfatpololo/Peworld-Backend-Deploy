@@ -1,6 +1,6 @@
 const userRecruitersModel = require('../model/user_recruiters.model')
 const { success, failed } = require('../helper/response');
-
+const cloudinary = require('../helper/cloudinary')
 const userRecruitersController = {
   // metod
   listRecruiters: (req, res) => {
@@ -44,17 +44,26 @@ const userRecruitersController = {
   //   });
   // },
 
-  updateRecruiters: (req, res) => {
+  updateRecruiters: async (req, res) => {
     const id = req.params.id
     // const image=req.file.filename
     // eslint-disable-next-line camelcase
     const {companyname, field, city, description, email, instagram, phone, linkedin} = req.body
-    let image_user 
-    if (req.file) {
-      image_user = req.file.filename
+    const image_recruiters = await cloudinary.uploader.upload(req.file.path);
+    const data = {
+      id: parseInt,
+      companyname,
+      field,
+      city,
+      description,
+      email,
+      instagram,
+      phone,
+      linkedin,
+      image_recruiters: image_recruiters.secure_url,
     }
     userRecruitersModel
-      .updateUserRecruiters( id, companyname, field, city, description, email, instagram, phone, linkedin, image_user)
+      .updateUserRecruiters(data)
       .then((result) => {
         res.json('Account Updated')
         console.log(companyname)

@@ -67,7 +67,7 @@ const userRecruitersModel = {
     })
   },
   
-  updateUserRecruiters: (id, companyname, field, city, description, email, instagram, phone, linkedin, image_recruiters) => {
+  updateUserRecruiters: (data) => {
     return new Promise ((resolve, reject) => {
       db.query(`UPDATE user_recruiters SET
         companyname = COALESCE ($1, companyname),
@@ -81,7 +81,7 @@ const userRecruitersModel = {
         image_recruiters = COALESCE ($9, image_recruiters)
         WHERE id_recruiter = $10
         `,
-        [companyname, field, city, description, email, instagram, phone, linkedin, image_recruiters, id]
+        [data.companyname, data.field, data.city, data.description, data.email, data.instagram, data.phone, data.linkedin, data.image_recruiters, data.id]
       
             , (err, res) => {
               if (err) {
