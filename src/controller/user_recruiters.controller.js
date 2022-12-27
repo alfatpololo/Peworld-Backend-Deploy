@@ -51,7 +51,7 @@ const userRecruitersController = {
     const {companyname, field, city, description, email, instagram, phone, linkedin} = req.body
     const image_recruiters = await cloudinary.uploader.upload(req.file.path);
     const data = {
-      id: parseInt,
+      id: parseInt(id),
       companyname,
       field,
       city,
