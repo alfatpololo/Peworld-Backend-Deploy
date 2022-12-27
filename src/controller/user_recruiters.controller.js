@@ -64,12 +64,12 @@ const userRecruitersController = {
     }
     userRecruitersModel
       .updateUserRecruiters(data)
-      .then((result) => {
-        res.json('Account Updated')
+      .then((results) => {
+        success(res, data, results, 'success', 'get all user success')
         console.log(companyname)
       })
       .catch((err) => {
-        res.json(err)
+        failed(res, err.message, 'failed', 'get all user failed')
       })
   },
   
