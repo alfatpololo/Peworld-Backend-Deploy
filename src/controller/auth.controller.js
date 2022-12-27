@@ -22,7 +22,7 @@ module.exports = {
                 password: hash,
                 email,
                 phone,
-                image_user: req.file ? req.file.filename : "Ellipse326.png",
+                image_user: "https://res.cloudinary.com/dobwcuvhd/image/upload/v1672033963/voxn2fpgiyjqqos6jnn3.jpg"
             }
 
             userModel.register(data).then((result) => {
