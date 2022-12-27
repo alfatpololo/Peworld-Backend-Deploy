@@ -8,6 +8,8 @@ const jwtAuth = require('../middleware/jwtAuth');
 const {isAdmin, isCustomer} = require('../middleware/authorization');
 const multerUpload = require('../middleware/upload_user');
 const deleteFile = require('../middleware/delete_user');
+const upload_image = require('../middleware/upload_image');
+const upload_user = require('../middleware/upload_user');
 // router
 // .get('/', (req, res) => {
 //     const data = [1,2,3,4]
@@ -19,7 +21,7 @@ router
   .get('/user/search', filter)
   .get('/user/:id', detail)
   .post('/user', insert)
-  .put('/user/update/:id', multerUpload.single("image_user"), update)
+  .put('/user/update/:id', upload_user, update)
   .delete('/user/:id', destroy)
 
   //register
