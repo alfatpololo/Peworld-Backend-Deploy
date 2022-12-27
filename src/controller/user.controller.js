@@ -44,12 +44,12 @@ const userController = {
   //   });
   // },
 
-  update: (req, res) => {
+  update: async (req, res) => {
     const id = req.params.id
     // const image=req.file.filename
     // eslint-disable-next-line camelcase
     const {name, job_desk, city, description, tempat_kerja} = req.body
-    const image_user = req.file.filename
+    const image_user = await cloudinary.uploader.upload(req.file.path);
     userModel
       .updateUser(id, name, job_desk, city, description, tempat_kerja, image_user)
       .then((result) => {
