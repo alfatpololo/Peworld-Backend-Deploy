@@ -31,7 +31,7 @@
 
 <!-- About The Project -->
 ## About The Project
-RESTful API made with Node.js and Express.js for Peworld App.
+Hirejob Backend is an API used for PeWorld Hirejob Aplication. This API is used for every function in the Peworld Hirejob application such as login, register, add portfolio, add work experience, delete portfolio, delete work experience, search users and update user profile.
 
 ### Built With
 This app was built with some technologies below:
@@ -119,6 +119,6 @@ Contributions are what make the open source community such an amazing place to b
 
 <!-- :rocket: [`Mamarecipe Web Service`](https://dove-chat.herokuapp.com/) -->
 
-<!-- :rocket: [`Mamarecipe App Demo`](https://dove-chat-fe.vercel.app/login) -->
+:rocket: [`Mamarecipe App Demo`](https://peworld-frontend-deploy.vercel.app/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
