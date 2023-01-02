@@ -115,7 +115,7 @@ Contributions are what make the open source community such an amazing place to b
 
 <!-- Related Projects -->
 ## Related Project
-:rocket: [`Peworld (Frontend)`](https://github.com/brndnwjy/peworld-app)
+:rocket: [`Peworld (Frontend)`](https://github.com/alfatpololo/peworld-frontend-deploy)
 
 <!-- :rocket: [`Mamarecipe Web Service`](https://dove-chat.herokuapp.com/) -->
 
